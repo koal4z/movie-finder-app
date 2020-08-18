@@ -1,11 +1,11 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "eslint:recommended"],
-  "plugins": ["prettier","prettier/recommended"],
+  "extends": ["airbnb", "airbnb/hooks", "airbnb-base/legacy", "eslint:recommended"],
+  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": [
-      "off",
+      "error",
       {
-        "endOfLine": "lf"
+        "endOfLine": "auto"
       }
     ],
     "arrow-body-style": [
@@ -15,7 +15,7 @@
     ],
     "linebreak-style": 0,
     "spaced-comment": "off",
-    "no-console": "off",
+    "no-console": "warn",
     "consistent-return": "off",
     "func-names": "off",
     "object-shorthand": "off",
@@ -27,7 +27,8 @@
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|val" }],
     "comma-dangle": ["warn", "never"],
-    //react
+    //react lints
+    "import/no-useless-path-segments": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -48,7 +49,10 @@
     ]
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
   },
   "globals": {
     "React": "writable"
