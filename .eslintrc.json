@@ -9,7 +9,7 @@
       }
     ],
     "arrow-body-style": [
-      "error",
+      "off",
       "as-needed",
       { "requireReturnForObjectLiteral": true }
     ],
@@ -27,6 +27,15 @@
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|val" }],
     "comma-dangle": ["warn", "never"],
+    "operator-linebreak": [
+      "error",
+      "after",
+      {
+        "overrides": {
+          "|": "after"
+        }
+      }
+    ],
     //react lints
     "import/no-useless-path-segments": "off",
     "react-hooks/rules-of-hooks": "error",

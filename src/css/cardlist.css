@@ -1,0 +1,7 @@
+.section_cardlist {
+  margin-top: 1.5rem;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}

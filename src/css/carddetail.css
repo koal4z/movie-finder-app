@@ -1,0 +1,47 @@
+.section_carddetail {
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 65rem;
+  background-color: var(--main-white-color);
+
+  display: flex;
+}
+
+.carddetail-imagebox {
+  padding: 1.5rem;
+}
+
+.carddetail-image {
+  width: 45rem;
+  height: 100%;
+}
+
+.carddetail-detailbox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.carddetail-detailbox-left {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.carddetail-detailbox-right {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.carddetail-detailbox-x {
+  width: auto;
+}
+
+.carddetail-detailbox-x > div {
+  margin: 1rem 1rem 0 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #ffc107;
+}
