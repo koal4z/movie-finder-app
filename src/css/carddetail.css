@@ -45,3 +45,46 @@
   cursor: pointer;
   color: #ffc107;
 }
+
+.carddetail-detailbox > hr {
+  border-style: solid;
+  background-color: #000000;
+  margin-bottom: 0.9rem;
+}
+
+.carddetail-detailbox > h6 {
+  color: #aaaaaa;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.carddetail-detailbox > h4 {
+  margin-bottom: 0.5rem;
+}
+
+.carddetail-detailbox-left > p {
+  margin: 1rem 0;
+  text-transform: capitalize;
+}
+
+.carddetail-detailbox-right > p {
+  text-indent: 4rem;
+  line-height: 3rem;
+}
+
+.carddetail-detailbox-right > div {
+  align-self: flex-end;
+  margin-top: auto;
+  padding: 0;
+
+  display: flex;
+  flex-flow: row;
+}
+
+.carddetail-detailbox-right > button {
+  margin: 0 0 0 1rem;
+}
+
+.carddetail-detailbox-right > button:first-child {
+  margin: 0;
+}

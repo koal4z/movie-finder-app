@@ -13,10 +13,7 @@ function App() {
         </header>
         <main>
           <Section />
-          <section>s2</section>
-          <section>s3</section>
         </main>
-        <footer>footer</footer>
       </div>
     </>
   );
