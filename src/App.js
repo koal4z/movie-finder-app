@@ -3,6 +3,7 @@ import './css/App.css';
 
 import Nav from './components/nav';
 import Section from './components/section';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <main>
           <Section />
         </main>
+        <Footer />
       </div>
     </>
   );

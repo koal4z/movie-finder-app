@@ -1,7 +1,7 @@
 .section_carddetail {
   margin-top: 1.5rem;
   width: 100%;
-  height: 65rem;
+  height: 100%;
   background-color: var(--main-white-color);
 
   display: flex;
@@ -87,4 +87,91 @@
 
 .carddetail-detailbox-right > button:first-child {
   margin: 0;
+}
+
+@media only screen and (max-width: 1100px) {
+  .carddetail-detailbox {
+    flex-direction: column;
+  }
+
+  .carddetail-detailbox-x {
+    order: -1;
+    text-align: end;
+    position: relative;
+    z-index: 999;
+  }
+
+  .carddetail-detailbox-left {
+    margin-top: -3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .carddetail-detailbox-left > h2 {
+    width: 90%;
+  }
+
+  .carddetail-detailbox-right {
+    padding-top: 0;
+  }
+
+  .carddetail-detailbox-right > button {
+    margin-top: 2rem;
+  }
+
+  .carddetail-detailbox-right > button:first-child {
+    margin-top: 2rem;
+  }
+
+  .carddetail-detailbox-right > h6 {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 942px) {
+  .section_carddetail {
+    flex-direction: column;
+  }
+
+  .carddetail-imagebox {
+    padding: 1.5rem 0rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .carddetail-detailbox {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .carddetail-detailbox-x {
+    top: -70rem;
+    left: -5rem;
+    width: 110%;
+  }
+
+  .carddetail-detailbox-x > div {
+    margin: 0;
+    text-align: end;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .carddetail-image {
+    width: 30rem;
+    height: 100%;
+  }
+
+  .carddetail-detailbox {
+    width: 100%;
+    margin: 0;
+  }
+
+  .carddetail-detailbox-x {
+    top: -47.5rem;
+    left: -1rem;
+    width: 100%;
+  }
 }

@@ -1,5 +1,6 @@
 .section {
   width: 100%;
   height: auto;
+  min-height: 86vh;
   padding: 1.5rem;
 }
