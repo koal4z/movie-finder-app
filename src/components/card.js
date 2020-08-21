@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Triangle } from '../images/triangle.svg';
+// import { ReactComponent as Triangle } from '../images/triangle.svg';
 
 import '../css/card.css';
 
@@ -19,9 +19,9 @@ const Card = () => {
           <button className="cardItem_box-button button" type="button">
             button1
           </button>
-          <div className="cardItem_box-triangle">
+          {/* <div className="cardItem_box-triangle">
             <Triangle />
-          </div>
+          </div> */}
           <button className="cardItem_box-button button" type="button">
             button3
           </button>

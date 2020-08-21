@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import '../css/carddetail.css';
 
 const CardDetail = () => {
-  const [showDetail, setShowDetail] = useState(true);
+  const [showDetail, setShowDetail] = useState(false);
   const handleClick = () => {
     setShowDetail(false);
   };
