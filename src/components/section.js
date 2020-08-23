@@ -8,10 +8,11 @@ import '../css/section.css';
 
 const Section = () => {
   const tab = useSelector((state) => state.tab);
+
   return (
     <section className="section">
       <HeaderTap tab={tab} />
-      <CardList />
+      <CardList tab={tab} />
       <CardDetail />
     </section>
   );

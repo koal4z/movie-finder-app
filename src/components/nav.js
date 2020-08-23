@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import axios from 'axios';
 import { ReactComponent as Search } from '../images/search.svg';
 import '../css/nav.css';
 
 const Nav = () => {
   const dispatch = useDispatch();
 
-  const tab1 = { type: 'SELECT_TAB', tab: 'link1' };
-  const tab2 = { type: 'SELECT_TAB', tab: 'link2' };
-  const tab3 = { type: 'SELECT_TAB', tab: 'link3' };
-  const tab4 = { type: 'SELECT_TAB', tab: 'link4' };
+  const tab1 = { type: 'SELECT_TAB', tab: 'Now Playing' };
+  const tab2 = { type: 'SELECT_TAB', tab: 'Popular' };
+  const tab3 = { type: 'SELECT_TAB', tab: 'Top Rated' };
+  const tab4 = { type: 'SELECT_TAB', tab: 'Upcomming' };
 
   const [isToggle, setIstoggle] = useState(false);
   const [searchBar, setSearchbar] = useState(false);
   const [input, setInput] = useState('');
+
   const handleHambergur = (e) => {
     const el = e.target;
     const className = ['hamburger', 'line1', 'line2', 'line3', 'hamburger switch'];
@@ -28,8 +30,23 @@ const Nav = () => {
     }
   };
 
+  const getQuery = async () => {
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    const res = await axios({
+      method: 'GET',
+      url: `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${input}`
+    });
+
+    if (res.data.results.length < 1) {
+      console.log('not found your query movie');
+    }
+    const queryData = { type: 'QUERY_DATA', dataList: res.data.results };
+    dispatch(queryData);
+  };
+
   const handlerSearchBar = () => {
     if (input) {
+      getQuery();
       setInput('');
       return;
     }
@@ -49,6 +66,7 @@ const Nav = () => {
   const handlerKey = (e) => {
     if (e.key === 'Enter') {
       if (input) {
+        getQuery();
         setInput('');
         return;
       }
@@ -88,16 +106,16 @@ const Nav = () => {
       <div className={`menubar${isToggle ? ' showmenu' : ''}`}>
         <ul className="menubar_menu">
           <li className="menubar_menu-item" onClick={() => dispatch(tab1)}>
-            <a href="/#">link1</a>
+            <a href="/#">Now Playing</a>
           </li>
           <li className="menubar_menu-item" onClick={() => dispatch(tab2)}>
-            <a href="/#">link2</a>
+            <a href="/#">Popular</a>
           </li>
           <li className="menubar_menu-item" onClick={() => dispatch(tab3)}>
-            <a href="/#">link3</a>
+            <a href="/#">Top Rated</a>
           </li>
           <li className="menubar_menu-item" onClick={() => dispatch(tab4)}>
-            <a href="/#">link4</a>
+            <a href="/#">Upcomming</a>
           </li>
         </ul>
       </div>

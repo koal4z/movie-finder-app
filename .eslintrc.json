@@ -32,7 +32,9 @@
       "after",
       {
         "overrides": {
-          "|": "after"
+          "|": "after",
+          "?": "before",
+          ":": "before"
         }
       }
     ],
@@ -54,6 +56,15 @@
           "onKeyDown",
           "onKeyUp"
         ]
+      }
+    ],
+    //rule for prop types
+    "react/forbid-prop-types": [
+      "off",
+      {
+        "forbid": ["any", "array", "object"],
+        "checkContextTypes": false,
+        "checkChildContextTypes": false
       }
     ]
   },

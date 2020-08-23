@@ -8,7 +8,7 @@ const HeaderTap = (props) => {
 
   return (
     <div className="section_header">
-      <h3 className="section_header-heading">{tab}</h3>
+      <h3 className="section_header-heading">{tab || 'movie'}</h3>
     </div>
   );
 };

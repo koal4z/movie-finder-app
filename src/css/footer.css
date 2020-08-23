@@ -1,16 +1,13 @@
 .footer {
   text-align: center;
   margin: 2rem;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  color: #ffffff;
 }
 
 .footer_link,
 .footer_link:focus,
 .footer_link:active {
-  color: #000000;
+  color: #ffffff;
   text-decoration: None;
 }
 

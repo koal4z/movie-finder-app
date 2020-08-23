@@ -1,18 +1,22 @@
 import { createStore } from 'redux';
 
 const initialState = {
-  tab: 'link1'
+  tab: '',
+  dataList: [],
+  error: false
 };
 
-const rootReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SELECT_TAB':
       return { ...state, tab: action.tab };
+    case 'QUERY_DATA':
+      return { ...state, dataList: action.dataList };
     default:
       return state;
   }
 };
 
-const store = createStore(rootReducer);
+const store = createStore(reducer);
 
 export default store;
