@@ -16,7 +16,8 @@ const Footer = () => {
           >
             Koal4z
           </a>
-        </span>
+        </span>{' '}
+        .
       </p>
       <p>
         powered by{' '}
@@ -27,7 +28,8 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           TMDB
-        </a>
+        </a>{' '}
+        .
       </p>
     </footer>
   );

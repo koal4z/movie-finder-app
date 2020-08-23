@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import { useSelector } from 'react-redux';
 import Card from './card';
@@ -9,12 +10,14 @@ import '../css/cardlist.css';
 const Cardlist = (props) => {
   const dataList = useSelector((state) => state.dataList);
   const [dataIndex, setDataIndex] = useState([]);
-  console.log(props);
+  const { tab } = props;
 
-  const getData = async () => {
+  const getData = async (type) => {
+    type = type.toLowerCase().replace(' ', '_');
+
     const res = await axios({
       method: 'GET',
-      url: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+      url: `https://api.themoviedb.org/3/movie/${type}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
     });
     // console.log(res);
     setDataIndex(res.data.results);
@@ -22,9 +25,9 @@ const Cardlist = (props) => {
 
   useEffect(() => {
     if (dataList.length < 1) {
-      getData();
+      getData(tab);
     }
-  }, [dataList]);
+  }, [dataList, tab]);
 
   return (
     <div className="section_cardlist">
@@ -33,6 +36,10 @@ const Cardlist = (props) => {
         : dataIndex.map((data) => <Card key={data.id} data={data} />)}
     </div>
   );
+};
+
+Cardlist.propTypes = {
+  tab: PropTypes.string.isRequired
 };
 
 export default Cardlist;

@@ -1,9 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import '../css/carddetail.css';
 
 const CardDetail = () => {
   const [showDetail, setShowDetail] = useState(false);
+  const details = useSelector((state) => state.details);
+  const {
+    title,
+    tagline,
+    popularity,
+    adult,
+    runtime,
+    revenue,
+    status,
+    genres,
+    overview,
+    original_language: originalLang,
+    release_date: releaseDate,
+    poster_path: posterPath
+  } = details;
+
+  useEffect(() => {
+    if (details) {
+      setShowDetail(true);
+    }
+  }, [details]);
   const handleClick = () => {
     setShowDetail(false);
   };
@@ -14,35 +36,29 @@ const CardDetail = () => {
           <div className="carddetail-imagebox">
             <img
               className="carddetail-image"
-              src="https://dummyimage.com/500x750/949494/000000.png"
-              alt=".."
+              src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
+              alt={title}
             />
           </div>
           <div className="carddetail-detailbox">
             <div className="carddetail-detailbox carddetail-detailbox-left">
-              <h2>Fight Club</h2>
-              <h6>Mischief. Mayhem. Soap.</h6>
+              <h2>{title}</h2>
+              <h6>{tagline}</h6>
               <h4>Detail</h4>
               <hr />
-              <p>Original Language : en</p>
-              <p>popularity : 7.35</p>
-              <p>release date : 2012-04-25</p>
-              <p>adult : No</p>
-              <p>runtime : 139 min</p>
-              <p>revenue : 100,853,753 $</p>
-              <p>status : Released</p>
+              <p>Original Language : {originalLang}</p>
+              <p>popularity : {popularity}</p>
+              <p>release date : {releaseDate}</p>
+              <p>adult : {adult ? 'Yes' : 'No'}</p>
+              <p>runtime : {runtime} min</p>
+              <p>revenue : {revenue} $</p>
+              <p>status : {status}</p>
             </div>
             <div className="carddetail-detailbox carddetail-detailbox-right">
-              <h6>Genres: Drama</h6>
+              <h6>Genres: {genres.map((genre) => genre.name).join(', ')}</h6>
               <h4>Overview</h4>
               <hr />
-              <p>
-                A ticking-time-bomb insomniac and a slippery soap salesman channel
-                primal male aggression into a shocking new form of therapy. Their
-                concept catches on, with underground &quot;fight clubs&quot; forming
-                in every town, until an eccentric gets in the way and ignites an
-                out-of-control spiral toward oblivion.
-              </p>
+              <p>{overview}</p>
               <div className="carddetail-detailbox-right">
                 <button type="button" className="button">
                   button

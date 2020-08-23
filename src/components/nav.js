@@ -8,10 +8,10 @@ import '../css/nav.css';
 const Nav = () => {
   const dispatch = useDispatch();
 
-  const tab1 = { type: 'SELECT_TAB', tab: 'Now Playing' };
-  const tab2 = { type: 'SELECT_TAB', tab: 'Popular' };
-  const tab3 = { type: 'SELECT_TAB', tab: 'Top Rated' };
-  const tab4 = { type: 'SELECT_TAB', tab: 'Upcomming' };
+  const tab1 = { type: 'SELECT_TAB', tab: 'Now Playing', dataList: [] };
+  const tab2 = { type: 'SELECT_TAB', tab: 'Popular', dataList: [] };
+  const tab3 = { type: 'SELECT_TAB', tab: 'Top Rated', dataList: [] };
+  const tab4 = { type: 'SELECT_TAB', tab: 'Upcoming', dataList: [] };
 
   const [isToggle, setIstoggle] = useState(false);
   const [searchBar, setSearchbar] = useState(false);
@@ -40,7 +40,7 @@ const Nav = () => {
     if (res.data.results.length < 1) {
       console.log('not found your query movie');
     }
-    const queryData = { type: 'QUERY_DATA', dataList: res.data.results };
+    const queryData = { type: 'QUERY_DATA', tab: input, dataList: res.data.results };
     dispatch(queryData);
   };
 
@@ -115,7 +115,7 @@ const Nav = () => {
             <a href="/#">Top Rated</a>
           </li>
           <li className="menubar_menu-item" onClick={() => dispatch(tab4)}>
-            <a href="/#">Upcomming</a>
+            <a href="/#">Upcoming</a>
           </li>
         </ul>
       </div>
