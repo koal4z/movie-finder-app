@@ -10,9 +10,12 @@
   color: #ffffff;
   text-decoration: None;
 }
-
-.footer > div {
-  margin-left: 0.4rem;
+.footer > p {
+  margin: 0.72rem 0;
+}
+.footer > p span {
+  display: inline-block;
+  margin-left: 0.2rem;
   transition: all 0.4s;
 }
 
@@ -20,7 +23,7 @@
   transition: all 0.1s;
 }
 
-.footer > div:hover {
+.footer > p span:hover {
   transform: scale(1.02) translateY(-0.2rem);
 }
 

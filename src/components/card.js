@@ -39,13 +39,14 @@ const Card = (props) => {
           <h6 className="cardItem_box-title">{title}</h6>
         </div>
         <div className="cardItem_box-side">
-          <button
+          <a
+            href="/#"
             className="cardItem_box-button button"
             type="button"
             onClick={showDetail}
           >
             Details
-          </button>
+          </a>
           {/* <div className="cardItem_box-triangle">
             <Triangle />
           </div> */}

@@ -21,14 +21,16 @@ const Footer = () => {
       </p>
       <p>
         powered by{' '}
-        <a
-          className="footer_link"
-          href="https://developers.themoviedb.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TMDB
-        </a>{' '}
+        <span>
+          <a
+            className="footer_link"
+            href="https://developers.themoviedb.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TMDB
+          </a>
+        </span>{' '}
         .
       </p>
     </footer>
