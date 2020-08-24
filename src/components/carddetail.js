@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
+import { addComma } from '../lib/addComma';
+import { changeTime } from '../lib/changeTime';
 import '../css/carddetail.css';
 
 const CardDetail = () => {
@@ -51,8 +52,10 @@ const CardDetail = () => {
                 <p>popularity : {popularity}</p>
                 <p>release date : {releaseDate}</p>
                 <p>adult : {adult ? 'Yes' : 'No'}</p>
-                <p>runtime : {runtime} min</p>
-                <p>revenue : {revenue} $</p>
+                <p>
+                  runtime : {changeTime(runtime).h} hr {changeTime(runtime).m} min
+                </p>
+                <p>revenue : {addComma(revenue)} $</p>
                 <p>status : {status}</p>
               </div>
               <div className="carddetail-detailbox carddetail-detailbox-right">

@@ -10,6 +10,7 @@ import '../css/card.css';
 const Card = (props) => {
   const { data } = props;
   const { title, poster_path: posterPath, id } = data;
+
   const dispatch = useDispatch();
 
   const showDetail = async () => {
@@ -19,6 +20,18 @@ const Card = (props) => {
     });
     const detailsMovie = { type: 'DETAILS_DATA', details: res.data };
     dispatch(detailsMovie);
+  };
+
+  const showTrailler = async () => {
+    const res = await axios({
+      method: 'GET',
+      url: `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+    });
+    const trailerMovieKey = {
+      type: 'TRAILER_DATA',
+      trailers: res.data.results.filter((l) => l.type === 'Trailer')
+    };
+    dispatch(trailerMovieKey);
   };
 
   return (
@@ -50,8 +63,12 @@ const Card = (props) => {
           {/* <div className="cardItem_box-triangle">
             <Triangle />
           </div> */}
-          <button className="cardItem_box-button button" type="button">
-            button2
+          <button
+            onClick={showTrailler}
+            className="cardItem_box-button button"
+            type="button"
+          >
+            Trailer
           </button>
         </div>
       </div>

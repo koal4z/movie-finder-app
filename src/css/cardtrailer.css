@@ -1,0 +1,40 @@
+.body_section_cardvideo {
+  padding: 5rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.section_cardvideo {
+  width: 100%;
+  min-height: auto;
+
+  max-width: 102.4rem;
+  height: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.section_cardvideo-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.section_cardvideo-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100%;
+}
+
+.section_cardvideo-x {
+  height: 2rem;
+  background-color: rgba(200, 35, 51, 0.8);
+  border-radius: 0;
+}
+
+.section_cardvideo-x:hover {
+  background-color: rgb(200, 35, 51);
+}

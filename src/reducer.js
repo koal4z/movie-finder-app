@@ -4,6 +4,7 @@ const initialState = {
   tab: 'popular',
   dataList: [],
   details: '',
+  trailers: '',
   error: false
 };
 
@@ -21,6 +22,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         details: action.details
+      };
+    case 'TRAILER_DATA':
+      return {
+        ...state,
+        trailers: action.trailers
       };
     default:
       return state;
